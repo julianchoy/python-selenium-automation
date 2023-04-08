@@ -2,7 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
-driver = webdriver.Chrome(executable_path='/Users/svetlanalevinsohn/JobEasy/13-python-selenium-automation/chromedriver')
+driver = webdriver.Chrome(executable_path='/Users/julian.choy/PycharmProjects/Careerist/Automation/python-selenium'
+                                          '-automation/chromedriver')
 
 # By ID
 driver.find_element(By.ID, 'twotabsearchtextbox')
@@ -14,7 +15,8 @@ driver.find_element(By.XPATH, "//img[@alt='PAVOI Jewelry']")
 
 # By Xpath, multiple attr
 driver.find_element(By.XPATH, "//a[@aria-label='Amazon' and @href='/ref=nav_logo']")
-driver.find_element(By.XPATH, "//a[@href='/gp/bestsellers/?ref_=nav_cs_bestsellers' and @data-csa-c-content-id='nav_cs_bestsellers' and @data-csa-c-type='link']")
+driver.find_element(By.XPATH, "//a[@href='/gp/bestsellers/?ref_=nav_cs_bestsellers' and "
+                              "@data-csa-c-content-id='nav_cs_bestsellers' and @data-csa-c-type='link']")
 
 # By Xpath, contains:
 driver.find_element(By.XPATH, "//a[contains(@href, 'nav_cs_bestsellers')]")
