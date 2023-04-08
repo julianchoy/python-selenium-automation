@@ -14,14 +14,14 @@ def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
 
 
-@when('Input text {text}')
-def input_search_word(context, text):
-    context.driver.find_element(*AMAZON_SEARCH_FIELD).send_keys(text)
+# @when('Input text {text}')
+# def input_search_word(context, text):
+#     context.driver.find_element(*AMAZON_SEARCH_FIELD).send_keys(text)
 
 
-@when('Click on search button')
-def click_search(context):
-    context.driver.find_element(*SEARCH_ICON).click()
+# @when('Click on search button')
+# def click_search(context):
+#     context.driver.find_element(*SEARCH_ICON).click()
 
 
 @then('Verify hamburger menu icon present')
