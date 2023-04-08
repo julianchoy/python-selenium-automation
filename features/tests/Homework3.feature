@@ -6,3 +6,8 @@ Feature: Homework 3
     When Click on Orders
     Then Verify Sign In is visible
     And Verify Email input field is present
+
+  Scenario: User can see Amazon cart is empty
+      Given Open Amazon Page
+      When Click on Amazon Cart
+      Then Verify Cart is empty

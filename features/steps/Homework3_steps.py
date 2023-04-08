@@ -14,6 +14,11 @@ def click_order_button(context):
     context.driver.find_element(By.ID, "nav-orders").click()
 
 
+@when('Click on Amazon Cart')
+def click_order_button(context):
+    context.driver.find_element(By.ID, "nav-cart").click()
+
+
 @then('Verify Sign In is visible')
 def sign_in_visible(context):
     assert context.driver.find_element(By.CSS_SELECTOR, "h1.a-spacing-small"), 'Sign in not visible'
@@ -24,3 +29,9 @@ def sign_in_visible(context):
 def sign_in_visible(context):
     assert context.driver.find_element(By.ID, "ap_email"), 'Email input field is not present'
     print('Email input field is present')
+
+
+@then('Verify Cart is empty')
+def verify_cart_empty(context):
+    assert context.driver.find_element(By.CSS_SELECTOR, ".sc-your-amazon-cart-is-empty"), 'Cart is not empty'
+    print('Cart is empty')
