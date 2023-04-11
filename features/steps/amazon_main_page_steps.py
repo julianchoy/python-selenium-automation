@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 
 
@@ -7,6 +8,7 @@ SEARCH_ICON = (By.ID, 'nav-search-submit-button')
 HAM_MENU = (By.ID, 'nav-hamburger-menu')
 FOOTER_LINKS = (By.CSS_SELECTOR, "table.navFooterMoreOnAmazon td.navFooterDescItem")
 HEADER_LINKS = (By.CSS_SELECTOR, "#nav-xshop a.nav-a[data-csa-c-type='link']")
+SIGN_IN_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip a.nav-action-button')
 
 
 @given('Open Amazon page')
@@ -14,20 +16,29 @@ def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
 
 
-# @when('Input text {text}')
-# def input_search_word(context, text):
-#     context.driver.find_element(*AMAZON_SEARCH_FIELD).send_keys(text)
+@when('Input text {text}')
+def input_search_word(context, text):
+    context.driver.find_element(*AMAZON_SEARCH_FIELD).send_keys(text)
 
 
-# @when('Click on search button')
-# def click_search(context):
-#     context.driver.find_element(*SEARCH_ICON).click()
+@when('Click on search button')
+def click_search(context):
+    context.driver.find_element(*SEARCH_ICON).click()
+
+
+@when('Click Sign In from popup')
+def click_signin(context):
+    context.driver.wait.until(EC.element_to_be_clickable(SIGN_IN_BTN)).click()
+    # Feel free to add error message if needed too, for example:
+    # context.driver.wait.until(
+    #     EC.element_to_be_clickable(SIGN_IN_BTN),
+    #     message='Sign in btn not clickable'
+    # ).click()
 
 
 @then('Verify hamburger menu icon present')
 def verify_ham_menu_present(context):
     context.driver.find_element(*HAM_MENU)
-    # print(element)
 
 
 @then('Verify that footer has {expected_amount} links')

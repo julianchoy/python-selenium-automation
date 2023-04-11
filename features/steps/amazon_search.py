@@ -7,9 +7,9 @@ from behave import given, when, then
 #     context.driver.get('https://www.amazon.com/')
 
 
-@when('Input text {search_word}')
-def input_search_word(context, search_word):
-    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys(search_word)
+# @when('Input text {search_word}')
+# def input_search_word(context, search_word):
+#     context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys(search_word)
 
 
 @when('Click on search button')
