@@ -30,7 +30,7 @@ Feature: Amazon search tests
     When Click on search button
     And Click on the first product
     And Click on Add to cart button
-    And Open cart page
+    And Click on cart icon
     Then Verify cart has 1 item(s)
 
 #  Scenario: User can click on a hamburger menu
