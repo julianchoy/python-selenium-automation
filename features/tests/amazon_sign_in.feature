@@ -5,3 +5,10 @@ Feature: Amazon Sign in tests
     Given Open Amazon page
     When Click Sign In from popup
     Then Verify Sign In page opens
+
+ Scenario: Sign in page is visible for a few seconds
+    Given Open Amazon page
+    Then Verify Sign in Popup shown
+    When Wait for 5 sec
+    Then Verify Sign in popup shown
+    Then Verify Sign in popup disappears

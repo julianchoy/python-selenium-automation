@@ -1,16 +1,24 @@
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 from time import sleep
 
 service = Service("/Users/julian.choy/Automation/python-selenium-automation/chromedriver")
 driver = webdriver.Chrome(service=service)
+driver.implicitly_wait(5)
+driver.wait = WebDriverWait(driver, 10)
+
+SIGNIN_BTN = (By.ID, "nav-link-accountList")
+ORDERS_BTN = (By.ID, "nav-orders")
+
 
 # 2 Practice with locators.
 
 driver.get('https://www.amazon.com/')
-sleep(2)
-driver.find_element(By.ID, "nav-link-accountList").click()
+driver.wait.until(EC.element_to_be_clickable(SIGNIN_BTN), message='Button not clickable')
+driver.find_element(*SIGNIN_BTN).click()
 
 # Amazon logo
 if driver.find_element(By.XPATH, "//i[@aria-label='Amazon']").is_displayed():
@@ -54,8 +62,11 @@ driver.quit()
 # 3 Create a test case for the Sign In page using python & selenium script
 service = Service("/Users/julian.choy/Automation/python-selenium-automation/chromedriver")
 driver = webdriver.Chrome(service=service)
+driver.implicitly_wait(5)
+driver.wait = WebDriverWait(driver, 10)
 driver.get('https://www.amazon.com/')
-driver.find_element(By.ID, "nav-orders").click()
+driver.wait.until(EC.element_to_be_clickable(ORDERS_BTN), message='Button not clickable')
+driver.find_element(*ORDERS_BTN).click()
 
 expected_text = 'Sign in'
 actual_text = driver.find_element(By.XPATH, "//h1[contains(text(), 'Sign in')]").text

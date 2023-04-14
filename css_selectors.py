@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
-driver = webdriver.Chrome(executable_path='/Users/svetlanalevinsohn/JobEasy/13-python-selenium-automation/chromedriver')
+driver = webdriver.Chrome(executable_path='/Users/julian.choy/PycharmProjects/Careerist/Automation/python-selenium-automation/chromedriver')
 
 # By ID
 driver.find_element(By.ID, 'twotabsearchtextbox')

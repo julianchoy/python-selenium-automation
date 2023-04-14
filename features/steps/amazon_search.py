@@ -12,9 +12,9 @@ from behave import given, when, then
 #     context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys(search_word)
 
 
-@when('Click on search button')
-def click_search(context):
-    context.driver.find_element(By.ID, 'nav-search-submit-button').click()
+# @when('Click on search button')
+# def click_search(context):
+#     context.driver.find_element(By.ID, 'nav-search-submit-button').click()
 
 
 # @then('Verify that text {expected_result} is shown')
