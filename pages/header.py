@@ -3,11 +3,19 @@ from pages.base_page import Page
 
 
 class Header(Page):
+    ORDERS_BTN = (By.ID, "nav-orders")
     AMAZON_SEARCH_FIELD = (By.ID, 'twotabsearchtextbox')
     SEARCH_ICON = (By.ID, 'nav-search-submit-button')
+    CART_BTN = (By.ID, 'nav-cart-count')
 
     def input_search_text(self, text):
         self.input_text(text, *self.AMAZON_SEARCH_FIELD)
 
     def click_search(self):
         self.click(*self.SEARCH_ICON)
+
+    def click_orders(self):
+        self.click(*self.ORDERS_BTN)
+
+    def click_cart(self):
+        self.click(*self.CART_BTN)

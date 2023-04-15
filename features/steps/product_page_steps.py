@@ -19,10 +19,10 @@ def open_product(context, product_id):
     context.driver.get(f'https://www.amazon.com/dp/{product_id}/')
 
 
-@when('Click on Add to cart button')
+@when('Click on Add to Cart')
 def click_add_to_cart(context):
-    context.driver.find_element(*ADD_TO_CART_BTN).click()
-    sleep(4)
+    # context.driver.find_element(*ADD_TO_CART).click()
+    context.app.product_page.click_add_to_cart()
 
 
 @when('Store product name and price')

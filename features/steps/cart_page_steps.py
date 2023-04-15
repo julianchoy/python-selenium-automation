@@ -10,7 +10,7 @@ CART_BTN = (By.ID, 'nav-cart')
 
 @when('Click on cart icon')
 def open_cart_page(context):
-    context.driver.find_element(*CART_BTN).click()
+    context.app.header.click_cart()
 
 
 @then('Verify cart has {expected_count} item(s)')
@@ -28,6 +28,13 @@ def verify_product_name(context):
     assert context.product_price == actual_price, f'Expected {context.product_price} but got {actual_price}'
 
 
-@then('Verify \'Your Shopping Cart is empty.\' text present')
-def verify_cart_empty(context):
-    assert context.driver.find_element(*EMPTY_CART_TXT).is_displayed()
+@then('Verify {expected_text} text present')
+def verify_cart_empty_txt(context, expected_text):
+    context.app.cart_page.verify_empty_cart_msg(expected_text)
+
+
+@then('Verify that cart has {cart_value} item')
+def verify_cart(context, cart_value):
+    context.app.cart_page.verify_cart_value(cart_value)
+    # actual_value = context.driver.find_element(By.CSS_SELECTOR, "#nav-cart-count").text
+    # assert actual_value == cart_value, f'Expected {cart_value} but got {actual_value}'

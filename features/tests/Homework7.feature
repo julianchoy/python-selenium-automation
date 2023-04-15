@@ -9,4 +9,12 @@ Feature: Homework7
   Scenario: 'Your Shopping Cart is empty' shown if no product added
    Given Open Amazon page
    When Click on cart icon
-   Then Verify 'Your Shopping Cart is empty.' text present
+   Then Verify Your Amazon Cart is empty text present
+
+  Scenario: User can add item to cart
+    Given Open Amazon page
+    When Input text pineapple
+    When Click on search button
+    And Click on first product
+    And Click on Add to Cart
+    Then Verify that cart has 1 item
