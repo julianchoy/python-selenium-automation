@@ -40,3 +40,11 @@ Feature: Amazon search tests
 #  Scenario: Footer has correct amount of links
 #    Given Open amazon page
 #    Then Verify that footer has 38 links
+
+
+  Scenario: User can select and search in a department
+    Given Open Amazon page
+    When Select department by alias audible
+    When Input text Faust
+    When Click on search button
+    Then Verify audible department is selected

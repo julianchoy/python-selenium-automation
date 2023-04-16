@@ -16,7 +16,7 @@ THUMBNAIL_IMG = (By.CSS_SELECTOR, '#altImages input.a-button-input')
 
 @given('Open Amazon product {product_id} page')
 def open_product(context, product_id):
-    context.driver.get(f'https://www.amazon.com/dp/{product_id}/')
+    context.app.product_page.open_product_id(product_id)
 
 
 @when('Click on Add to Cart')

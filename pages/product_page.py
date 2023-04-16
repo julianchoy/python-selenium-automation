@@ -7,3 +7,6 @@ class ProductPage(Page):
 
     def click_add_to_cart(self):
         self.click(*self.ADD_TO_CART_BTN)
+
+    def open_product_id(self, product_id):
+        self.open_url(f'https://www.amazon.com/dp/{product_id}/')
